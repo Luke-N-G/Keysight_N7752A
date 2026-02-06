@@ -39,7 +39,7 @@ try:
     CHAN = 1        # Canal de sensor
     AUTO_RANGE = 1  # Rango (1 automatico, 0 manual)
     UNIT = 1        # Unidad de medida (1 W)
-    ATIME = 0.5     # Tiempo de integración
+    ATIME = 0.1     # Tiempo de integración
     CONTINUOUS = 0  # Medición continua (1) o trigger manual (0)
 
     # Escribimos la configuración al instrumento
@@ -51,12 +51,12 @@ try:
     # -------------------
     # Preparar guardado
     # -------------------
-    intervalo  = 1.0*0  # Segundos entre muestras (no cuenta el tiempo de integración)
+    intervalo  = 0.1  # Segundos entre muestras (no cuenta el tiempo de integración)
     batch_size = 10   # Cantidad de muestras que se guardan de a bloques
 
     # Armado de archivo de guardado
     fecha_hora = datetime.datetime.now().strftime("%Y%m%d_%H%M")
-    nombre_archivo = f"{fecha_hora}_mediciones_potencia.txt"
+    nombre_archivo = f"{fecha_hora}_burbuja.txt"
     file = open(nombre_archivo, "w")
     file.write("tiempo_s\thora\tpotencia_mW\n")
 
